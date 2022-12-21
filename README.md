@@ -21,4 +21,6 @@ Things you may want to cover:
 
 * Deployment instructions
 
-* ...
+* 
+安裝 tailwind 後 記得在 development 放
+config.assets.debug = true
