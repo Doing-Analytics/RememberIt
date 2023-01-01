@@ -9,6 +9,6 @@ class User < ApplicationRecord
   validates :email, uniqueness: true
 
   # association
-  has_many :team_member
-  has_many :team, through: :team_member
+  has_many :team_members
+  has_many :teams, through: :team_members
 end

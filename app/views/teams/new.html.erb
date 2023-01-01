@@ -1,0 +1,17 @@
+<%= form_with model: @team do |f| %>
+
+  <div>
+    團隊名稱：
+    <%= f.text_field :name %>
+  </div>
+
+  <div>
+    關於你的團隊：
+    <%= f.text_field :description %>
+  </div>
+
+  <div>
+    <%= f.submit '送出' %>
+  </div>
+
+<% end %>
