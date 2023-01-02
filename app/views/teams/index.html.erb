@@ -1,0 +1,18 @@
+<h1>Hey! <%= current_user.email %></h1>
+
+<% if current_user.teams.present? %>
+  <h1>It's your teams!</h1>
+<% else %>
+  <%= turbo_frame_tag "build_current_user_teams", data: {turbo_frame: "build_current_user_teams" } do %>
+    <%= link_to '建立你的團隊', new_team_path %>
+  <% end %>
+<% end %>
+
+<div>
+  <% @teams.each do |team| %>
+    <%= team.name %>
+    <%= team.description %>
+    <%= team.users %>
+    <%= team.projects %>
+  <% end %>
+</div>
