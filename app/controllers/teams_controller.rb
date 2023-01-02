@@ -14,9 +14,9 @@ class TeamsController < ApplicationController
 
     if @team.save
       current_user.teams << @team
-      redirect_to teams_path
+      redirect_to teams_url
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -25,17 +25,17 @@ class TeamsController < ApplicationController
 
   def update
     if @team.update(team_params)
-      redirect_to teams_path
+      redirect_to teams_url
     else
-      render :edit
+      render :edit, status: :unprocessable_entity
     end
   end
 
   def destroy
     current_user.teams.destroy(@team)
-    @team.delete
+    @team.destroy
 
-    redirect_to teams_path
+    redirect_to teams_url
   end
 
   private

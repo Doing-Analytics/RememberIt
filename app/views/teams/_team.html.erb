@@ -1,0 +1,10 @@
+<tr>
+  <td><%= team.name %></td>
+  <td><%= team.description %></td>
+  <td>
+    <%= turbo_frame_tag "edit_current_user_teams" do %>
+      <%= link_to '編輯', edit_team_path(team) %>
+      <%= link_to '解散團隊', team_path(team), data: { 'turbo-method': 'delete' } %>
+    <% end %>
+  </td>
+</tr>
