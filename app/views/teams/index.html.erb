@@ -1,18 +1,32 @@
-<h1>Hey! <%= current_user.email %></h1>
-
-<% if current_user.teams.present? %>
-  <h1>It's your teams!</h1>
-<% else %>
-  <%= turbo_frame_tag "build_current_user_teams", data: {turbo_frame: "build_current_user_teams" } do %>
-    <%= link_to '建立你的團隊', new_team_path %>
-  <% end %>
-<% end %>
-
 <div>
-  <% @teams.each do |team| %>
-    <%= team.name %>
-    <%= team.description %>
-    <%= team.users %>
-    <%= team.projects %>
+  <h1>Hey! <%= current_user.email %></h1>
+
+  <% if current_user.teams.present? %>
+    <h1>It's your teams!</h1>
+    <%= turbo_frame_tag "build_current_user_teams", data: {turbo_frame: "build_current_user_teams" } do %>
+      <%= link_to '還有新團隊要加入？', new_team_path %>
+    <% end %>
+    <table>
+      <% @teams.each do |team| %>
+      <tr>
+        <td>團隊名稱</td>
+        <td>關於你的團隊</td>
+      </tr>
+      <tr>
+        <td><%= team.name %></td>
+        <td><%= team.description %></td>
+        <td>
+          <%= turbo_frame_tag "edit_current_user_teams" do %>
+            <%= link_to '編輯', edit_team_path(team) %>
+            <%= link_to '解散團隊', team_path(team), data: { 'turbo-method': 'delete' } %>
+          <% end %>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  <% else %>
+    <%= turbo_frame_tag "build_current_user_teams", data: {turbo_frame: "build_current_user_teams" } do %>
+      <%= link_to '建立你的團隊', new_team_path %>
+    <% end %>
   <% end %>
 </div>
