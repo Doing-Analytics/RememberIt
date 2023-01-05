@@ -1,0 +1,25 @@
+<h1><%= @team.name %></h1>
+
+<div>
+  <% link_to '概觀' %>
+  <% link_to '訊息' %>
+  <% link_to '行事曆' %>
+</div>
+
+<div>
+  關於我們
+  <%= form_with model: @team , data: { turbo_frame: "about our" } do |form| %>
+    <%= turbo_frame_tag "edit our team" do %>
+      <%= @team.description %>
+      <%= link_to '編輯', edit_team_path(@team) %>
+    <% end %>
+  <% end %>
+</div>
+
+<div>
+  成員
+</div>
+
+<div>
+  專案
+</div>
