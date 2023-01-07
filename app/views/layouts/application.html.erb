@@ -12,9 +12,21 @@
   </head>
 
   <body>
+    <% if current_user %>
+      <%= link_to "Dashboard", dashboard_path %>
+      You are logged in as: <%= current_user.email %>
+      <%= link_to "登出", :logout, id: 'sign-out-link', data: { "turbo-method": :delete } %>
+    <% else %>
+      <%= link_to "登入", login_path, id: 'sign-in-link' %>
+      <%= link_to "註冊", register_path, id: 'register-link' %>
+    <% end %>
     <main class="container flex px-5 mx-auto mt-28">
       <%= render 'shared/navbar' %>
       <%= yield %>
     </main>
+    <aside>
+      <% if notice %><%= notice %><% end %>
+      <% if alert %><%= alert %><% end %>
+    </aside>
   </body>
 </html>
