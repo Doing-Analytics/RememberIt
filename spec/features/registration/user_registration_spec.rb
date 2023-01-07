@@ -13,7 +13,7 @@ RSpec.describe 'user', type: :feature do
       fill_in '密碼', with: 'password'
       fill_in '確認密碼', with: 'password'
       click_on '送出'
-      expect(page).to have_content '登入'
+      expect(page).to have_content '成功註冊'
     end
 
     scenario 'fail' do
@@ -25,7 +25,7 @@ RSpec.describe 'user', type: :feature do
       fill_in '密碼', with: 'password'
       fill_in '確認密碼', with: 'password'
       click_on '送出'
-      expect(page).to have_content '請填入會員資訊'
+      expect(page).to have_content '註冊失敗'
     end
 
     scenario 'user did not confirm password' do
@@ -37,8 +37,8 @@ RSpec.describe 'user', type: :feature do
       fill_in '手機', with: '09123456789'
       fill_in '密碼', with: 'password'
       click_on '送出'
-      expect(page).to have_content '請填入會員資訊'
+      expect(page).to have_content '註冊失敗'
     end
   end
-  
+
 end
