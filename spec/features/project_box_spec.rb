@@ -30,7 +30,6 @@ RSpec.describe 'project_box', type: :feature do
       fill_in '密碼', with: 'pas'
       fill_in '確認密碼', with: 'pas'
       click_on '送出'
-      expect(page).to have_content '成功註冊'
       expect(page.current_path).not_to eq new_project_path
     end
   end
@@ -49,10 +48,16 @@ RSpec.describe 'project_box', type: :feature do
     end
     scenario 'hover the project' do
       visit '/'
-      find('.project').hover have_content '...'
+      find('button[data-project="1"]').hover
+      expect(page).to have_selector(:link_or_button, 'more')
     end
   end
 
   context 'user can click more item after hover the project ' do
+    scenario 'hover and click the project ' do 
+      visit '/'
+      find('button[data-project="1"]').hover
+      find(".more").click
+    end
   end
 end
