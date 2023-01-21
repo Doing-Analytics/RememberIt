@@ -1,5 +1,20 @@
 <nav>
-  <section>
-    <%= link_to "Home", root_path %>
+  <section class="flex items-center justify-end h-12 text-white bg-gray-800">
+    <div>
+      <% if current_user %>
+        <ul class="flex">
+          <li class="mr-2"><%= link_to "回首頁", dashboard_path %></li>
+          <li class="mr-2"><%= current_user.name %></li>
+          <li class="mr-2"><%= link_to "登出", :logout, id: 'sign-out-link', data: { "turbo-method": :delete } %></li>
+        </ul>
+      <% else %>
+        <%= link_to login_path, id: 'sign-in-link', data: {turbo_frame: 'login_page'} do %>
+          登入
+        <% end %>
+        <%= link_to register_path, id: 'register-link', data: {turbo_frame: 'sign_up'} do %>
+          註冊
+        <% end %>
+      <% end %>
+    </div>
   </section>
 </nav>
