@@ -10,4 +10,6 @@ class User < ApplicationRecord
   # association
   has_many :team_members
   has_many :teams, through: :team_members
+
+  has_one_attached :avater
 end
