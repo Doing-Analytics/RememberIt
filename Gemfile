@@ -83,3 +83,5 @@ group :test do
 end
 
 gem "sorcery", "~> 0.16.4"
+
+gem "pundit", "~> 2.3"
