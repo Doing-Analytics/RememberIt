@@ -11,9 +11,9 @@ class TeamsController < ApplicationController
 
   def create
     @team = Team.new(team_params)
+    @team_members = TeamMember.new(user: current_user, team: @team, role: 1)
 
-    if @team.save
-      current_user.teams << @team
+    if @team.save && @team_members.save
       redirect_to teams_url
     else
       render :new, status: :unprocessable_entity
@@ -32,7 +32,7 @@ class TeamsController < ApplicationController
   end
 
   def destroy
-    current_user.teams.destroy(@team)
+    @team.team_members.destroy_all
     @team.destroy
 
     redirect_to teams_url
