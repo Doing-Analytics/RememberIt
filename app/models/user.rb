@@ -11,5 +11,5 @@ class User < ApplicationRecord
   has_many :team_members
   has_many :teams, through: :team_members
 
-  has_one_attached :avater
+  has_one_attached :avatar
 end
