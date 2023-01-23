@@ -7,6 +7,7 @@ class TeamsController < ApplicationController
   end
 
   def show
+    @projects = @team.projects
   end
 
   def new

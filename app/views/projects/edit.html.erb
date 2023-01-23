@@ -1,0 +1,14 @@
+<h1>編輯專案</h1>
+<%= form_with model: @project, url: team_project_path(@team, @project), method: 'patch' do |f| %>
+<div>
+  <%= f.label :title, '專案名稱' %>
+  <%= f.text_field :title %>
+</div>
+<div>
+  <%= f.label :description, '關於你的專案' %>
+  <%= f.text_field :description %>
+</div>
+<div>
+  <%= f.submit '送出' %>
+</div>
+<% end %>

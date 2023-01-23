@@ -23,4 +23,9 @@
 <div>
   專案
   <%= link_to '新增專案', new_team_project_path(@team) %>
+  <tr>
+    <% @projects.each do |project| %>
+      <td><%= link_to project.title, team_projects_path(@team) %></td>
+    <% end %>
+  </tr>
 </div>
