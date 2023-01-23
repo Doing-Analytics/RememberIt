@@ -1,0 +1,13 @@
+<%= form_with model: project, url: team_projects_path(team) do |f| %>
+<div>
+  <%= f.label :title, '專案名稱' %>
+  <%= f.text_field :title %>
+</div>
+<div>
+  <%= f.label :description, '關於你的專案' %>
+  <%= f.text_field :description %>
+</div>
+<div>
+  <%= f.submit '送出' %>
+</div>
+<% end %>
