@@ -1,9 +1,13 @@
 class TeamsController < ApplicationController
-  before_action :find_team, only: [:edit, :update, :destroy]
+  before_action :find_team, only: [:show, :edit, :update, :destroy]
   before_action :find_team_leader, only: [:edit, :update, :destroy]
 
   def index
     @teams = current_user.teams
+  end
+
+  def show
+    @projects = @team.projects
   end
 
   def new

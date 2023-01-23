@@ -1,0 +1,8 @@
+<tr>
+  <td><%= link_to project.title, team_projects_path(team) %></td>
+  <td><%= project.description %></td>
+  <td>
+    <%= link_to '編輯', edit_team_project_path(team, project) %>
+    <%= link_to '刪除專案', team_project_path(team, project), data: { 'turbo-method': 'delete' } %>
+  </td>
+</tr>
