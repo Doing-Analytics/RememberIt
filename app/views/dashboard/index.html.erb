@@ -1,0 +1,63 @@
+<h1 class="ml-4 text-2xl">首頁</h1>
+
+<div class="mb-4 text-center">
+  <span><%= Time.current.strftime('%m 月 %d 日') %> , </span>
+  <span><%= Time.current.strftime('週 %w') %></span>
+</div>
+
+<div class="mb-8 text-3xl text-center">
+  <span>Hello !</span>
+  <span><%= current_user.name %></span>
+</div>
+
+<div class="grid grid-cols-10 gap-6 mx-4">
+  <div class="col-start-1 col-end-6 px-4 py-4 border rounded-lg h-80">
+    <div class="flex items-center mb-2 border-b ">
+      <i class="pl-4 pr-4 text-4xl fa-solid fa-user-tie"></i>
+      <div class="pb-2">
+        <p class="mb-2 text-2xl">我的優先任務</p>
+        <div>
+          <span>即將截止</span>
+          <span>已過期</span>
+          <span>已完成</span>
+        </div>
+      </div>
+    </div>
+    <div class="w-full ml-4">
+      <div class="my-4">
+        <i class="fa-regular fa-circle-check"></i>
+        <span>按一下此處可新增任務</span>
+      </div>
+      <div class="my-4">
+        <i class="fa-regular fa-circle-check"></i>
+        <span>task1</span>
+      </div>
+      <div class="my-4">
+        <i class="fa-regular fa-circle-check"></i>
+        <span>task2</span>
+      </div>
+    </div>
+  </div>
+  <div class="col-start-6 col-end-11 px-4 py-4 border rounded-lg">
+    <div class="px-4 h-1/5">
+      <span class="mb-2 mr-2 text-2xl">專案</span>
+      <span>近期</span>
+    </div>
+    <i class="px-4 text-3xl fa-regular fa-square-plus"></i>
+  </div>
+  <div class="col-span-10 px-4 pt-4 mb-10 border rounded-lg h-96">
+    <div class="mx-8 my-4">
+      <span class="mx-2 text-2xl">人員</span>
+      <span>經常性協作者</span>
+    </div>
+    <div class="flex text-center">
+      <% 4.times do %>
+        <div class="px-8 py-10 mx-8 border rounded-lg">
+          <i class="fa-regular fa-user-astronaut"></i>
+          <p class="my-10">檢視您團隊的狀態更新。讓工作保持正常進度</p>
+          <button>邀請隊友</button>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

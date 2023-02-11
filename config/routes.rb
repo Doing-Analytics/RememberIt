@@ -3,8 +3,7 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
-  get 'dashboard', to: 'dashboard#show'
-  root 'home#show'
+  root 'dashboard#index'
 
   # sorcery
   get 'register', to: 'user_registrations#new'
@@ -19,4 +18,7 @@ Rails.application.routes.draw do
   resources :teams do
     resources :projects
   end
+
+  # search
+  get 'search', to: 'application#search'
 end
