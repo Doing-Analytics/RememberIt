@@ -1,5 +1,5 @@
 class DashboardController < ApplicationController
-  def show
+  def index
     @teams = current_user.teams
   end
 end

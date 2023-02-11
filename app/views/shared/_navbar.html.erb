@@ -1,9 +1,9 @@
 <nav>
-  <section class="flex items-center justify-end h-12 text-white bg-gray-800">
+  <section class="flex items-center justify-end h-12 bg-gray-800 text-grey">
     <div>
       <% if current_user %>
-        <ul class="flex">
-          <li class="mr-2"><%= link_to "回首頁", dashboard_path %></li>
+        <ul class="flex text-white">
+          <li class="mr-2"><%= link_to "回首頁", root_path %></li>
           <li class="mr-2"><%= current_user.name %></li>
           <li class="mr-2"><%= link_to "登出", :logout, id: 'sign-out-link', data: { "turbo-method": :delete } %></li>
         </ul>
