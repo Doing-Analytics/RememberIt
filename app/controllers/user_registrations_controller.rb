@@ -10,16 +10,16 @@ class UserRegistrationsController < ApplicationController
 
     if @user.save
       auto_login(@user)
-      redirect_to dashboard_path, notice: 'You successfully registered'
+      redirect_to dashboard_path, notice: '成功註冊！'
     else
-      flash.now[:alert] = 'Registration failed'
-      render :new
+      flash.now[:alert] = '註冊失敗'
+      render :new, status: :unprocessable_entity
     end
   end
 
   private
 
   def user_params
-    params.require(:user).permit(:email, :password, :password_confirmation)
+    params.require(:user).permit(:email, :phone, :name, :password, :password_confirmation, :avatar)
   end
 end

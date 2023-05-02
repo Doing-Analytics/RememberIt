@@ -1,20 +1,20 @@
 <nav>
-  <section>
-    <%= link_to "Home", root_path %>
-  </section>
-  <section>
-    <% if current_user %>
-      <%= link_to "Dashboard", dashboard_path %>
-      You are logged in as: <%= current_user.email %>
-      <%= link_to "登出", :logout, id: 'sign-out-link', data: { "turbo-method": :delete } %>
-    <% else %>
-      <%= link_to "登入", login_path, id: 'sign-in-link' %>
-      <%= link_to "註冊", register_path, id: 'register-link' %>
-    <% end %>
+  <section class="flex items-center justify-end h-12 bg-gray-800 text-grey">
+    <div>
+      <% if current_user %>
+        <ul class="flex text-white">
+          <li class="mr-2"><%= link_to "回首頁", root_path %></li>
+          <li class="mr-2"><%= current_user.name %></li>
+          <li class="mr-2"><%= link_to "登出", :logout, id: 'sign-out-link', data: { "turbo-method": :delete } %></li>
+        </ul>
+      <% else %>
+        <%= link_to login_path, id: 'sign-in-link', data: {turbo_frame: 'login_page'} do %>
+          登入
+        <% end %>
+        <%= link_to register_path, id: 'register-link', data: {turbo_frame: 'sign_up'} do %>
+          註冊
+        <% end %>
+      <% end %>
+    </div>
   </section>
 </nav>
-
-<aside>
-  <% if notice %><%= notice %><% end %>
-  <% if alert %><%= alert %><% end %>
-</aside>

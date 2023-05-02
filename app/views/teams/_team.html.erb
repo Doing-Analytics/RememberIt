@@ -1,5 +1,5 @@
 <tr>
-  <td><%= team.name %></td>
+  <td><%= link_to team.name, team_path(team) %></td>
   <td><%= team.description %></td>
   <td>
     <%= turbo_frame_tag "edit_current_user_teams" do %>

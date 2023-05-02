@@ -30,6 +30,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_06_162710) do
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "role"
     t.index ["team_id"], name: "index_team_members_on_team_id"
     t.index ["user_id"], name: "index_team_members_on_user_id"
   end
@@ -47,6 +48,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_06_162710) do
     t.string "salt"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "phone"
+    t.string "name"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 

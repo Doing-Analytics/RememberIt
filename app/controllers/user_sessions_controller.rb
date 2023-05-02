@@ -9,10 +9,10 @@ class UserSessionsController < ApplicationController
     @user = login(params[:email], params[:password])
 
     if @user
-      redirect_back_or_to(dashboard_path, notice: 'You have logged in successfully')
+      redirect_back_or_to(root_path, notice: '登入成功')
     else
-      flash.now[:alert] = 'Log in failed'
-      render :new
+      flash.now[:alert] = '登入失敗'
+      render :new, status: :unprocessable_entity
     end
   end
 

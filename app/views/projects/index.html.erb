@@ -1,0 +1,15 @@
+<div class="text-white">
+  <h1>Hey! <%= current_user.name %></h1>
+
+  <% if @projects.blank? %>
+    <%= link_to '建立團隊的第一個專案', new_team_project_path %>
+  <% else %>
+    <table>
+      <tr>
+        <td>專案名稱</td>
+        <td>專案描述</td>
+      </tr>
+      <%= render partial: "project", collection: @projects, as: :project, locals: {team: @team} %>
+    </table>
+  <% end %>
+</div>
